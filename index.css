@@ -1,0 +1,33 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.daily-wrapper {
+    height: 100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.contents {
+    z-index: 100;
+    text-align:center;
+}
+
+.contents [data-key="completed"] {
+    margin:0;
+    font-size: 5em;
+}
+
+.contents [data-key="remaining"] {
+    color: gray
+}
+.units-indicator {
+    position:absolute;
+    left:0;
+    width:100vw;
+    bottom:0;
+    background-color: beige;
+}
+
