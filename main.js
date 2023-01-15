@@ -1,12 +1,14 @@
-const DAILY_UNITS = 96
-let unitsIndicatorEl, completedEl, remainingEl 
+const DAILY_HOURS = 24
+const INTERVAL = 15
+const HOURLY_MINUTES = 60
+let unitsIndicatorEl, remainingEl, passedEl 
 
 main()
 
 function main() {
     unitsIndicatorEl = document.querySelector(".units-indicator")
-    completedEl = document.querySelector('[data-key="completed"]')
     remainingEl = document.querySelector('[data-key="remaining"]')
+    passedEl = document.querySelector('[data-key="passed"]')
 
     onTick()
     window.setInterval(onTick, 5000)
@@ -15,14 +17,14 @@ function main() {
 
 function onTick() {
     const today =  new Date()
-    const hoursUnit = today.getHours() * 4
-    const minutesUnits = parseInt(today.getMinutes()/15)
-    const completedUnits = hoursUnit + minutesUnits
-    const remainingUnits = DAILY_UNITS - completedUnits
-    console.log(completedUnits, remainingUnits)    
-    completedEl.textContent = completedUnits
-    remainingEl.textContent = remainingUnits
+    const hoursRemaining = DAILY_HOURS - today.getHours()  
+    const minutesModulo = today.getMinutes() % INTERVAL 
+    const minutesCounting = INTERVAL - minutesModulo 
+    const minutesRemaining = today.getMinutes() - minutesModulo
+    remainingEl.innerHTML = `${hoursRemaining}hr ${minutesRemaining}m ${minutesCounting}m`
+    passedEl.textContent = `${today.getHours()} hrs`
 
-    const heightOfIndicator = (completedUnits/DAILY_UNITS) * 100 
+    const passedInMinutes = (today.getHours() * 60) + today.getMinutes()
+    const heightOfIndicator = (passedInMinutes/(DAILY_HOURS * 60)) * 100 
     unitsIndicatorEl.style.height = `${heightOfIndicator}%` 
 }

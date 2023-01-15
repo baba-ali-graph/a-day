@@ -1,5 +1,7 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: monospace;
+    height:100vh;
+    overflow    :hidden;
 }
 
 .daily-wrapper {
@@ -15,12 +17,12 @@ body {
     text-align:center;
 }
 
-.contents [data-key="completed"] {
+.contents [data-key="remaining"] {
     margin:0;
     font-size: 5em;
 }
 
-.contents [data-key="remaining"] {
+.contents [data-key="passed"] {
     color: gray
 }
 .units-indicator {
