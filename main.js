@@ -17,10 +17,11 @@ function main() {
 
 function onTick() {
     const today =  new Date()
-    const hoursRemaining = DAILY_HOURS - today.getHours()  
+    const hoursRemaining = DAILY_HOURS - today.getHours() - 1   
     const minutesModulo = today.getMinutes() % INTERVAL 
     const minutesCounting = INTERVAL - minutesModulo 
-    const minutesRemaining = today.getMinutes() - minutesModulo
+    const minutesRemainingModulo = (HOURLY_MINUTES - today.getMinutes())% INTERVAL
+    const minutesRemaining = (HOURLY_MINUTES-today.getMinutes()) - minutesRemainingModulo
     remainingEl.innerHTML = `${hoursRemaining}hr ${minutesRemaining}m ${minutesCounting}m`
     passedEl.textContent = `${today.getHours()} hrs`
 
