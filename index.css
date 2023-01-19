@@ -14,11 +14,12 @@ body {
 .contents {
     z-index: 100;
     text-align:center;
+    margin: auto 2em;
 }
-
 .contents [data-key="remaining"] {
+
     margin:0;
-    font-size: 5em;
+    font-size: calc(2em + 4vw);
 }
 
 .contents [data-key="passed"] {
@@ -32,3 +33,17 @@ body {
     background-color: beige;
 }
 
+.hours-container {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.hr {
+    place-items: center;
+    display:grid;
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    border: 2px solid gray;
+}
