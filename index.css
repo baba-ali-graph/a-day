@@ -1,49 +1,62 @@
 body {
-    font-family: monospace;
+  font-family: monospace;
 }
 
 .daily-wrapper {
-    height: 100%;
-    width: 100%;
-    position:fixed;
-    display:flex;
-    align-items:center;
-    justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contents {
-    z-index: 100;
-    text-align:center;
-    margin: auto 2em;
+  z-index: 100;
+  text-align: center;
+  margin: auto 2em;
 }
 .contents [data-key="remaining"] {
-
-    margin:0;
-    font-size: calc(2em + 4vw);
+  margin: 0;
+  font-size: calc(2em + 4vw);
 }
 
 .contents [data-key="passed"] {
-    color: gray
+  color: gray;
 }
 .units-indicator {
-    position:absolute;
-    left:0;
-    width:100vw;
-    bottom:0;
-    background-color: beige;
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  bottom: 0;
+  background-color: beige;
+  display:none;
 }
 
 .hours-container {
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(6, 1fr);
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .hr {
-    place-items: center;
-    display:grid;
-    height: 32px;
-    width: 32px;
-    border-radius: 100%;
-    border: 2px solid gray;
+  place-items: center;
+  display: grid;
+  position: relative;
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 2px solid gray;
+}
+.hr .hr-indicator {
+  position: absolute;
+  width: 110%;
+  height: 0%;
+  left: -5%;
+  display: grid;
+  place-items: center;
+  bottom: 0;
+  background-color: skyblue;
+  font-size: 8px;
 }
