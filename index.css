@@ -15,6 +15,9 @@ body {
   z-index: 100;
   text-align: center;
   margin: auto 2em;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 .contents [data-key="remaining"] {
   margin: 0;
@@ -30,12 +33,13 @@ body {
   width: 100vw;
   bottom: 0;
   background-color: beige;
-  display:none;
+  display: none;
 }
 
 .hours-container {
   display: grid;
   gap: 1em;
+  margin-bottom: 2em;
   grid-template-columns: repeat(6, 1fr);
 }
 
@@ -59,4 +63,16 @@ body {
   bottom: 0;
   background-color: skyblue;
   font-size: 8px;
+}
+
+.minutes-indicator {
+  width: 250px;
+  height: 4px;
+  border: 1px solid dodgerblue;
+  display: flex;
+  background: dodgerblue;
+}
+.minutes-indicator .minutes-level {
+  background: white;
+  height: 100%;
 }
